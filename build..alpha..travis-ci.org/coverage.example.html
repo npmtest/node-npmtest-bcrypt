@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
     <title>Code coverage report for node-npmtest-bcrypt/bcrypt/bcrypt.js</title>
     <meta charset="utf-8">
     <style>
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-bcrypt/bcrypt/</a> » bcrypt.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-bcrypt/bcrypt/</a> &#187; bcrypt.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -636,53 +638,53 @@ var promises = require('./lib/promises');
 /// generate a salt (sync)
 /// @param {Number} [rounds] number of rounds (default 10)
 /// @return {String} salt
-module.exports.genSaltSync = <span class="fstat-no" title="function not covered">function genSaltSync(rounds) {</span>
+module.exports.genSaltSync = <span class="fstat-no" title="function not covered" >function genSaltSync(rounds) {</span>
     // default 10 rounds
-<span class="cstat-no" title="statement not covered">    if (!rounds) {</span>
-<span class="cstat-no" title="statement not covered">        rounds = 10;</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof rounds !== 'number') {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('rounds must be a number');</span>
+<span class="cstat-no" title="statement not covered" >    if (!rounds) {</span>
+<span class="cstat-no" title="statement not covered" >        rounds = 10;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof rounds !== 'number') {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('rounds must be a number');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return bindings.gen_salt_sync(rounds, crypto.randomBytes(16));</span>
+<span class="cstat-no" title="statement not covered" >    return bindings.gen_salt_sync(rounds, crypto.randomBytes(16));</span>
 };
 &nbsp;
 /// generate a salt
 /// @param {Number} [rounds] number of rounds (default 10)
 /// @param {Function} cb callback(err, salt)
-module.exports.genSalt = <span class="fstat-no" title="function not covered">function genSalt(rounds, ignore, cb) {</span>
+module.exports.genSalt = <span class="fstat-no" title="function not covered" >function genSalt(rounds, ignore, cb) {</span>
     // if callback is first argument, then use defaults for others
-<span class="cstat-no" title="statement not covered">    if (typeof arguments[0] === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof arguments[0] === 'function') {</span>
         // have to set callback first otherwise arguments are overriden
-<span class="cstat-no" title="statement not covered">        cb = arguments[0];</span>
-<span class="cstat-no" title="statement not covered">        rounds = 10;</span>
+<span class="cstat-no" title="statement not covered" >        cb = arguments[0];</span>
+<span class="cstat-no" title="statement not covered" >        rounds = 10;</span>
     // callback is second argument
-    } else <span class="cstat-no" title="statement not covered">if (typeof arguments[1] === 'function') {</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof arguments[1] === 'function') {</span>
         // have to set callback first otherwise arguments are overriden
-<span class="cstat-no" title="statement not covered">        cb = arguments[1];</span>
+<span class="cstat-no" title="statement not covered" >        cb = arguments[1];</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!cb) {</span>
-<span class="cstat-no" title="statement not covered">        return promises.promise(genSalt, this, [rounds, ignore]);</span>
+<span class="cstat-no" title="statement not covered" >    if (!cb) {</span>
+<span class="cstat-no" title="statement not covered" >        return promises.promise(genSalt, this, [rounds, ignore]);</span>
     }
 &nbsp;
     // default 10 rounds
-<span class="cstat-no" title="statement not covered">    if (!rounds) {</span>
-<span class="cstat-no" title="statement not covered">        rounds = 10;</span>
-    } else <span class="cstat-no" title="statement not covered">if (typeof rounds !== 'number') {</span>
+<span class="cstat-no" title="statement not covered" >    if (!rounds) {</span>
+<span class="cstat-no" title="statement not covered" >        rounds = 10;</span>
+    } else <span class="cstat-no" title="statement not covered" >if (typeof rounds !== 'number') {</span>
         // callback error asynchronously
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            cb(new Error('rounds must be a number'));</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('rounds must be a number'));</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    crypto.randomBytes(16, <span class="fstat-no" title="function not covered">function(error, randomBytes) {</span></span>
-<span class="cstat-no" title="statement not covered">        if (error) {</span>
-<span class="cstat-no" title="statement not covered">            cb(error);</span>
-<span class="cstat-no" title="statement not covered">            return;</span>
+<span class="cstat-no" title="statement not covered" >    crypto.randomBytes(16, <span class="fstat-no" title="function not covered" >function(error, randomBytes) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (error) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(error);</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered">        bindings.gen_salt(rounds, randomBytes, cb);</span>
+<span class="cstat-no" title="statement not covered" >        bindings.gen_salt(rounds, randomBytes, cb);</span>
     });
 };
 &nbsp;
@@ -690,149 +692,148 @@ module.exports.genSalt = <span class="fstat-no" title="function not covered">fun
 /// @param {String} data the data to encrypt
 /// @param {String} salt the salt to use when hashing
 /// @return {String} hash
-module.exports.hashSync = <span class="fstat-no" title="function not covered">function hashSync(data, salt) {</span>
-<span class="cstat-no" title="statement not covered">    if (data == null || salt == null) {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('data and salt arguments required');</span>
+module.exports.hashSync = <span class="fstat-no" title="function not covered" >function hashSync(data, salt) {</span>
+<span class="cstat-no" title="statement not covered" >    if (data == null || salt == null) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('data and salt arguments required');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof data !== 'string' || (typeof salt !== 'string' &amp;&amp; typeof salt !== 'number')) {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('data must be a string and salt must either be a salt string or a number of rounds');</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof data !== 'string' || (typeof salt !== 'string' &amp;&amp; typeof salt !== 'number')) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('data must be a string and salt must either be a salt string or a number of rounds');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof salt === 'number') {</span>
-<span class="cstat-no" title="statement not covered">        salt = module.exports.genSaltSync(salt);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof salt === 'number') {</span>
+<span class="cstat-no" title="statement not covered" >        salt = module.exports.genSaltSync(salt);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return bindings.encrypt_sync(data, salt);</span>
+<span class="cstat-no" title="statement not covered" >    return bindings.encrypt_sync(data, salt);</span>
 };
 &nbsp;
 /// hash data using a salt
 /// @param {String} data the data to encrypt
 /// @param {String} salt the salt to use when hashing
 /// @param {Function} cb callback(err, hash)
-module.exports.hash = <span class="fstat-no" title="function not covered">function hash(data, salt, cb) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof data === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            data(new Error('data must be a string and salt must either be a salt string or a number of rounds'));</span>
+module.exports.hash = <span class="fstat-no" title="function not covered" >function hash(data, salt, cb) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof data === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            data(new Error('data must be a string and salt must either be a salt string or a number of rounds'));</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof salt === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            salt(new Error('data must be a string and salt must either be a salt string or a number of rounds'));</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof salt === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            salt(new Error('data must be a string and salt must either be a salt string or a number of rounds'));</span>
         });
     }
 &nbsp;
     // cb exists but is not a function
     // return a rejecting promise
-<span class="cstat-no" title="statement not covered">    if (cb &amp;&amp; typeof cb !== 'function') {</span>
-<span class="cstat-no" title="statement not covered">        return promises.reject(new Error('cb must be a function or null to return a Promise'));</span>
+<span class="cstat-no" title="statement not covered" >    if (cb &amp;&amp; typeof cb !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        return promises.reject(new Error('cb must be a function or null to return a Promise'));</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!cb) {</span>
-<span class="cstat-no" title="statement not covered">        return promises.promise(hash, this, [data, salt]);</span>
+<span class="cstat-no" title="statement not covered" >    if (!cb) {</span>
+<span class="cstat-no" title="statement not covered" >        return promises.promise(hash, this, [data, salt]);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (data == null || salt == null) {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            cb(new Error('data and salt arguments required'));</span>
+<span class="cstat-no" title="statement not covered" >    if (data == null || salt == null) {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('data and salt arguments required'));</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof data !== 'string' || (typeof salt !== 'string' &amp;&amp; typeof salt !== 'number')) {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            cb(new Error('data must be a string and salt must either be a salt string or a number of rounds'));</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof data !== 'string' || (typeof salt !== 'string' &amp;&amp; typeof salt !== 'number')) {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('data must be a string and salt must either be a salt string or a number of rounds'));</span>
         });
     }
 &nbsp;
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof salt === 'number') {</span>
-<span class="cstat-no" title="statement not covered">        return module.exports.genSalt(salt, <span class="fstat-no" title="function not covered">function(err, salt) {</span></span>
-<span class="cstat-no" title="statement not covered">            return bindings.encrypt(data, salt, cb);</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof salt === 'number') {</span>
+<span class="cstat-no" title="statement not covered" >        return module.exports.genSalt(salt, <span class="fstat-no" title="function not covered" >function(err, salt) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return bindings.encrypt(data, salt, cb);</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return bindings.encrypt(data, salt, cb);</span>
+<span class="cstat-no" title="statement not covered" >    return bindings.encrypt(data, salt, cb);</span>
 };
 &nbsp;
 /// compare raw data to hash
 /// @param {String} data the data to hash and compare
 /// @param {String} hash expected hash
 /// @return {bool} true if hashed data matches hash
-module.exports.compareSync = <span class="fstat-no" title="function not covered">function compareSync(data, hash) {</span>
-<span class="cstat-no" title="statement not covered">    if (data == null || hash == null) {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('data and hash arguments required');</span>
+module.exports.compareSync = <span class="fstat-no" title="function not covered" >function compareSync(data, hash) {</span>
+<span class="cstat-no" title="statement not covered" >    if (data == null || hash == null) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('data and hash arguments required');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof data !== 'string' || typeof hash !== 'string') {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('data and hash must be strings');</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof data !== 'string' || typeof hash !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('data and hash must be strings');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return bindings.compare_sync(data, hash);</span>
+<span class="cstat-no" title="statement not covered" >    return bindings.compare_sync(data, hash);</span>
 };
 &nbsp;
 /// compare raw data to hash
 /// @param {String} data the data to hash and compare
 /// @param {String} hash expected hash
 /// @param {Function} cb callback(err, matched) - matched is true if hashed data matches hash
-module.exports.compare = <span class="fstat-no" title="function not covered">function compare(data, hash, cb) {</span>
-<span class="cstat-no" title="statement not covered">    if (typeof data === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            data(new Error('data and hash arguments required'));</span>
+module.exports.compare = <span class="fstat-no" title="function not covered" >function compare(data, hash, cb) {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof data === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            data(new Error('data and hash arguments required'));</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof hash === 'function') {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            hash(new Error('data and hash arguments required'));</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof hash === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            hash(new Error('data and hash arguments required'));</span>
         });
     }
 &nbsp;
     // cb exists but is not a function
     // return a rejecting promise
-<span class="cstat-no" title="statement not covered">    if (cb &amp;&amp; typeof cb !== 'function') {</span>
-<span class="cstat-no" title="statement not covered">        return promises.reject(new Error('cb must be a function or null to return a Promise'));</span>
+<span class="cstat-no" title="statement not covered" >    if (cb &amp;&amp; typeof cb !== 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        return promises.reject(new Error('cb must be a function or null to return a Promise'));</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (!cb) {</span>
-<span class="cstat-no" title="statement not covered">        return promises.promise(compare, this, [data, hash]);</span>
+<span class="cstat-no" title="statement not covered" >    if (!cb) {</span>
+<span class="cstat-no" title="statement not covered" >        return promises.promise(compare, this, [data, hash]);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (data == null || hash == null) {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            cb(new Error('data and hash arguments required'));</span>
+<span class="cstat-no" title="statement not covered" >    if (data == null || hash == null) {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('data and hash arguments required'));</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof data !== 'string' || typeof hash !== 'string') {</span>
-<span class="cstat-no" title="statement not covered">        return process.nextTick(<span class="fstat-no" title="function not covered">function() {</span></span>
-<span class="cstat-no" title="statement not covered">            cb(new Error('data and hash must be strings'));</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof data !== 'string' || typeof hash !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        return process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('data and hash must be strings'));</span>
         });
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return bindings.compare(data, hash, cb);</span>
+<span class="cstat-no" title="statement not covered" >    return bindings.compare(data, hash, cb);</span>
 };
 &nbsp;
 /// @param {String} hash extract rounds from this hash
 /// @return {Number} the number of rounds used to encrypt a given hash
-module.exports.getRounds = <span class="fstat-no" title="function not covered">function getRounds(hash) {</span>
-<span class="cstat-no" title="statement not covered">    if (hash == null) {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('hash argument required');</span>
+module.exports.getRounds = <span class="fstat-no" title="function not covered" >function getRounds(hash) {</span>
+<span class="cstat-no" title="statement not covered" >    if (hash == null) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('hash argument required');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    if (typeof hash !== 'string') {</span>
-<span class="cstat-no" title="statement not covered">        throw new Error('hash must be a string');</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof hash !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('hash must be a string');</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    return bindings.get_rounds(hash);</span>
+<span class="cstat-no" title="statement not covered" >    return bindings.get_rounds(hash);</span>
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 05:20:57 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 15 2017 21:41:39 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
